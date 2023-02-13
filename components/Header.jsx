@@ -18,7 +18,7 @@ const Header = () => {
       {/* SEARCH BAR */}
       <div className="flex justify-between items-center md:border-2 rounded-full px-2 my-">
         <input className="bg-transparent flex-grow m-2 outline-none text-sm" type="input" placeholder="Search Any Place..."/>
-        <MagnifyingGlassIcon className="hidden md:inline-flex text-white bg-red-400 rounded-full p-2 h-8" /> 
+        <MagnifyingGlassIcon className="hidden md:inline-flex text-white bg-red-400 rounded-full p-2 h-8 cursor-pointer" /> 
       </div>
       {/* BECOME A HOST AND LOGIN SIDE */}
       <div className="flex items-center justify-end text-sm space-x-1 md:space-x-4 ">

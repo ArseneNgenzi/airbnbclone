@@ -4,10 +4,12 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import Header from '@/components/Header.jsx'
 import Banner from '@/components/Banner.jsx'
+import SmallCard from '@/components/SmallCard'
+import SlidingCard from '@/components/SlidingCard'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({ exploreData }) {
+export default function Home({ exploreData, slidingCardsData }) {
   // console.log(exploreData)
   return (
     <>
@@ -25,9 +27,20 @@ export default function Home({ exploreData }) {
           <h2 className='md:text-4xl font-semibold pb-5 '>Explore More Places</h2>
           {/* Pulling data  */}
           {/* <p>{getStaticProps()}</p> */}
-          {exploreData?.map((item,id) => (
-            <p key={id}>{item.location}</p>
-          ))}
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+            {exploreData?.map((item,id) => (
+              <SmallCard key={id} item={item}/>
+            ))}
+          </div>
+        </section>
+
+        <section className='py-6'>
+          <h2 className='md:text-4xl font-semibold py-8 '>Live Anywhere</h2>
+          <div className='flex space-x-3 overflow-x-scroll h-auto scrollbar-hide py-3'>
+            {slidingCardsData?.map((item,id) => (
+              <SlidingCard key={id} item={item}/>
+            ))}
+          </div>
         </section>
       </main>
     </>
@@ -39,9 +52,14 @@ export async function getStaticProps() {
   .then(
     res => res.json()
   )
+
+  const slidingCardsData = await fetch('https://www.jsonkeeper.com/b/VHHT')
+  .then(res => res.json())
+
   return {
     props: {
-      exploreData
+      exploreData,
+      slidingCardsData
     }
   }
 }
