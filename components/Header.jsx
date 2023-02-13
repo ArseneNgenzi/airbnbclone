@@ -21,9 +21,9 @@ const Header = () => {
         <MagnifyingGlassIcon className="hidden md:inline-flex text-white bg-red-400 rounded-full p-2 h-8" /> 
       </div>
       {/* BECOME A HOST AND LOGIN SIDE */}
-      <div className="flex items-center justify-end text-sm space-x-1 md:space-x-4">
-        <p className="hidden md:inline-flex">Become a host</p>
-        <GlobeAltIcon className="h-5"/>
+      <div className="flex items-center justify-end text-sm space-x-1 md:space-x-4 ">
+        <p className="hidden md:inline-flex cursor-pointer">Become a host</p>
+        <GlobeAltIcon className="h-5 cursor-pointer"/>
         <button className="flex border-2 rounded-full p-1 md:p-2">
           {/* <Bars3Icon className="h-5"/> */}
           <UserIcon className="h-3 md:h-5"/>
