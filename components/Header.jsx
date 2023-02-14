@@ -1,8 +1,30 @@
 import Image from "next/image";
-import React from "react";
-import {Bars3Icon, GlobeAltIcon, MagnifyingGlassIcon, UserIcon} from '@heroicons/react/24/outline'
+import React, { useState } from "react";
+import { GlobeAltIcon, MagnifyingGlassIcon, UserIcon} from '@heroicons/react/24/outline'
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import { DateRangePicker } from 'react-date-range';
 
 const Header = () => {
+  const [searchKeyword, setSearchKeyword] = useState('')
+  const [guestNumber, setGuestNumber] = useState(1)
+  const [startDate, setStartDate] = useState(new Date())
+  const [endDate, setEndDate] = useState(new Date())
+
+
+  const handleSelect = (selectedRange) => {
+    setStartDate(selectedRange.selection.startDate)
+    setEndDate(selectedRange.selection.endDate)
+  }
+
+  const selectionRange = {
+    startDate, //startDate: startDate,
+    endDate, //endDate: endDate,
+    key: 'selection'
+  }
+
+
+
 	return (
 		<header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md py-2 px-5 md:py-4 md:px-10">
       {/* LOGO */}
@@ -17,7 +39,13 @@ const Header = () => {
 			</div>
       {/* SEARCH BAR */}
       <div className="flex justify-between items-center md:border-2 rounded-full px-2 my-">
-        <input className="bg-transparent flex-grow m-2 outline-none text-sm" type="input" placeholder="Search Any Place..."/>
+        <input
+          value={searchKeyword}
+          onChange={e => setSearchKeyword(e.target.value)}
+          className="bg-transparent flex-grow m-2 outline-none text-sm" 
+          type="input" 
+          placeholder="Search Any Place..."
+          />
         <MagnifyingGlassIcon className="hidden md:inline-flex text-white bg-red-400 rounded-full p-2 h-8 cursor-pointer" /> 
       </div>
       {/* BECOME A HOST AND LOGIN SIDE */}
@@ -29,7 +57,38 @@ const Header = () => {
           <UserIcon className="h-3 md:h-5"/>
         </button>
       </div>
+      {searchKeyword && (
+      <div className="col-span-3 mx-auto pt-5">
+        <DateRangePicker
+          ranges={[selectionRange]}
+          minDate={new Date()}
+          rangeColors={['#FD5B61']}
+          onChange={handleSelect}
+        />
+        <div className="flex items-center border-b mb-5 pb-2">
+          <h2 className="text-2xl flex-grow font-semibold">Number of guests</h2>
+          <UserIcon 
+            className="h-5"
+          />
+          <input 
+            type="number" 
+            value={guestNumber} 
+            onChange={e => setGuestNumber(e.target.value)} 
+            min={1}
+            className="w-12 pl-2 text-lg outline-none text-red-400"/>
+        </div>
+
+        {/* Cancel and Search buttons */}
+        <div className="flex justify-between px-2">
+          <button className="bg-gray-500 text-white px-5 py-2 rounded-full" onClick={() => setSearchKeyword("")}>Cancel</button>
+          <button className="bg-red-400 text-white px-5 py-2 rounded-full">Search</button>
+        </div>
+      </div>
+      )
+    }
 		</header>
+
+    
 	);
 };
 
