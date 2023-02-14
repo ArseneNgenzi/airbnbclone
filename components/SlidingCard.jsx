@@ -12,7 +12,7 @@ const SlidingCard = ({item}) => {
                 className='rounded-xl'
             />
         </div>
-        <h3 className='text-2xl mt-3'>{title}</h3>
+        <h3 className=' text-sm sm:text-lg md:text-2xl mt-3 capitalize'>{title}</h3>
     </div>
   )
 }
