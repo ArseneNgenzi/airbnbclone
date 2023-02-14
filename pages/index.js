@@ -38,7 +38,7 @@ export default function Home({ exploreData, slidingCardsData }) {
 
         <section className='py-6'>
           <h2 className='md:text-4xl font-semibold py-8 '>Live Anywhere</h2>
-          <div className='flex space-x-3 overflow-x-scroll h-auto scrollbar-hide py-3'>
+          <div className='flex space-x-3 overflow-x-scroll h-auto scrollbar-hide py-3 pl-2'>
             {slidingCardsData?.map((item,id) => (
               <SlidingCard key={id} item={item}/>
             ))}
