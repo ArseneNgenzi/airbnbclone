@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Heads from '@/components/Heads'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
@@ -15,12 +15,7 @@ export default function Home({ exploreData, slidingCardsData }) {
   // console.log(exploreData)
   return (
     <>
-      <Head>
-        <title>AirBnb Clone By Arsene</title>
-        <meta name="description" content="Created by Arsene Ngenzi" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <link rel="icon" href="/logo.png" />
-      </Head>
+      <Heads />
       
       <Header/>
       <Banner/>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Heads from '@/components/Heads'
 import React, { useState } from "react";
 import { GlobeAltIcon, MagnifyingGlassIcon, UserIcon} from '@heroicons/react/24/outline'
 import 'react-date-range/dist/styles.css'; // main style file
@@ -43,6 +44,8 @@ const Header = ({placeholder}) => {
 
 
 	return (
+    <>
+    <Heads pageTitle='Search result'/>
 		<header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md py-2 px-5 md:py-4 md:px-10">
       {/* LOGO */}
 			<div className="relative flex items-center cursor-pointer" onClick={() => router.push('/')}>
@@ -107,6 +110,7 @@ const Header = ({placeholder}) => {
       )
     }
 		</header>
+    </>
 
     
 	);
