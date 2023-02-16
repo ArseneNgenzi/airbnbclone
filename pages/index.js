@@ -18,7 +18,7 @@ export default function Home({ exploreData, slidingCardsData }) {
       <Head>
         <title>AirBnb Clone By Arsene</title>
         <meta name="description" content="Created by Arsene Ngenzi" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="icon" href="/logo.png" />
       </Head>
       
