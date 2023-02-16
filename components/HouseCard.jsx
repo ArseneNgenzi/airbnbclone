@@ -8,7 +8,7 @@ const HouseCard = ({ item }) => {
 		item;
 	// console.log(item)
 	return (
-		<div className="flex py-7 px-2 flex-col md:flex-row border-b-2 border-red-400 md:border-gray-200 cursor-pointer hover:opacity-80 transition ease-in-out duration-300 hover:shadow-lg first:border-t first:border-gray-200">
+		<div className="flex py-7 px-2 flex-col md:flex-row border-b-2 border-red-400 md:border-gray-200 cursor-pointer hover:opacity-80 transition ease-in-out duration-300 hover:shadow-lg  last:border-b-0">
 			<div className="relative h-52 xsm:w-full md:h-52 md:w-80 flex-shrink-0">
 				<Image src={img} fill className="object-cover object-center  rounded-xl" />
 			</div>
