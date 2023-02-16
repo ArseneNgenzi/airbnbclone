@@ -10,6 +10,7 @@ const SlidingCard = ({item}) => {
                 src={img}
                 fill
                 className='rounded-xl'
+                alt='slidingCard'
             />
         </div>
         <h3 className=' text-sm sm:text-lg md:text-2xl mt-3 capitalize'>{title}</h3>
